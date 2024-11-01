@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/heena.lk
+    username: root
+    password: siri
+
+  jpa:
+    hibernate:
+      ddl-auto: update
