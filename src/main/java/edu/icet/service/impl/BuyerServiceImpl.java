@@ -26,7 +26,7 @@ public class BuyerServiceImpl implements BuyerService {
     }
 
     @Override
-    public Integer getBuyer(String email, String password) {
-        return objectMapper.convertValue(buyerDao.getIdOfBuyer(email, password),Integer.class);
+    public Buyer getBuyer(String email, String password) {
+        return objectMapper.convertValue(buyerDao.getIdOfBuyer(email, password),Buyer.class);
     }
 }

@@ -23,12 +23,12 @@ public class SellerController {
         return ResponseEntity.status(HttpStatus.OK).body(s);
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<Integer> getSeller(@RequestPart("email")String email,@RequestPart("password")String password){
-        Integer buyerId = sellerService.getBuyer(email, password);
-        if (buyerId==null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(0);
+    @PostMapping("/login")
+    public ResponseEntity<Seller> getSeller(@RequestPart("email")String email,@RequestPart("password")String password){
+        Seller seller = sellerService.getBuyer(email, password);
+        if (seller==null){
+            return ResponseEntity.status(HttpStatus.OK).body(null);
         }
-        return ResponseEntity.status(HttpStatus.OK).body(buyerId);
+        return ResponseEntity.status(HttpStatus.OK).body(seller);
     }
 }

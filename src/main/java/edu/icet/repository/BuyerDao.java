@@ -8,8 +8,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface BuyerDao extends JpaRepository<BuyerEntity, Integer> {
-    @Query(nativeQuery = true,value = "Select buyer_id from buyers where email=:email and password=:password")
-    Optional<Integer> getIdOfBuyer(@Param("email")String email,@Param("password")String password);
+    @Query(nativeQuery = true,value = "Select * from buyers where email=:email and password=:password")
+    Optional<BuyerEntity> getIdOfBuyer(@Param("email")String email,@Param("password")String password);
 
     boolean existsByEmail(String email);
 }

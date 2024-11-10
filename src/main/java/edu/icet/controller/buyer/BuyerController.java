@@ -21,12 +21,12 @@ public class BuyerController {
         return ResponseEntity.status(HttpStatus.OK).body(s);
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<Integer> getBuyer(@RequestPart("email")String email,@RequestPart("password")String password){
-        Integer buyerId = buyerService.getBuyer(email, password);
-        if (buyerId==null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(0);
+    @PostMapping("/login")
+    public ResponseEntity<Buyer> getBuyer(@RequestPart("email")String email,@RequestPart("password")String password){
+        Buyer buyer = buyerService.getBuyer(email, password);
+        if (buyer==null){
+            return ResponseEntity.status(HttpStatus.OK).body(null);
         }
-        return ResponseEntity.status(HttpStatus.OK).body(buyerId);
+        return ResponseEntity.status(HttpStatus.OK).body(buyer);
     }
 }

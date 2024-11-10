@@ -26,7 +26,7 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Integer getBuyer(String email, String password) {
-        return objectMapper.convertValue(sellerDao.getIdOfSeller(email, password),Integer.class);
+    public Seller getBuyer(String email, String password) {
+        return objectMapper.convertValue(sellerDao.getIdOfSeller(email, password),Seller.class);
     }
 }
